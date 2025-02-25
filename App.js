@@ -7,7 +7,7 @@ export default function App() {
          </View>
         
          <View style={styles.viewcenter}>
-        <Image style={styles.img1} source={"./assets/molecu.png"} />
+        <Image source={require("./assets/molecu.png")} />
       </View>
 
         <View >
