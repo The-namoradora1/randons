@@ -7,18 +7,28 @@ export default function App() {
          </View>
         
          <View style={styles.viewcenter}>
-        <Image source={require("./assets/molecu.png")} />
+        <Image source={require("./assets/molecu.jpg")} />
       </View>
 
         <View >
-          <Text style={styles.texto}>Cadastro</Text>
+          <Text style={styles.textoCad}>Cadastro</Text>
           <TextInput style={styles.textInput} placeholder="Digite seu email" />
           <TextInput style={styles.textInput} placeholder="Digite sua senha" />
-          <TouchableOpacity style={styles.botao}>
-            <Text style={styles.botaoTexto}>Cadastrar</Text>
-          </TouchableOpacity>'
+
+         </View>
+         <View style= {{flexDirection:'row'}}>
+          <TouchableOpacity>
+            <Text style ={styles.texto} >Esqueceu seu e-mail?</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity>
+            <Text style ={styles.texto} >Esqueceu seu a senha?</Text>
+            </TouchableOpacity>
          </View>
 
+         <TouchableOpacity style={styles.botao}>
+            <Text style={styles.botaoTexto}>Entrar</Text>
+          </TouchableOpacity>'
     </View>
   );
 }

@@ -4,7 +4,9 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
 
     textInput: {
-        width: '80%',
+      alignItems: "center", 
+        justifyContent: 'center',
+        width: '100%',
         height: 40,
         backgroundColor: 'rgba(255, 255, 255, 0.45)',
         borderRadius: 15,
@@ -15,7 +17,7 @@ const styles = StyleSheet.create({
     viewCabecalho: {
         backgroundColor:'#44288c',
         flex:1,
-        width:'100%',
+
         shadowOffset:{width: 0, height: 2}
 
     },
@@ -23,15 +25,12 @@ const styles = StyleSheet.create({
     viewcenter:{
         flex: 3,
         alignItems: "center",   
-        justifyContent: "center",
-        width: '100%',
-        marginTop:-300            
-
+        justifyContent: "flex-start",
     },
 
         viewPrincipal: {
       flex: 1,
-      backgroundColor: '#171446',
+      backgroundColor: '#44288c',
       alignItems: 'center',
       justifyContent: 'center',
     },
@@ -40,9 +39,16 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
+    textoCad: {
+      fontSize: 15,
+      fontWeight: 'bold',
+      color: 'rgb(0, 0, 0)',
+      textAlign: 'center',
+    },
+
 
     texto: {
-      fontSize: 40,
+      fontSize: 12,
       fontWeight: 'bold',
       color: 'rgb(0, 0, 0)',
       textAlign: 'center',
@@ -77,16 +83,6 @@ const styles = StyleSheet.create({
       width: 350,
       height: 265,
       borderRadius: 20,
-    },
-
-    titulo: {
-      fontSize: 100,
-      fontWeight: 'bold',
-      color: 'rgb(0, 0, 0)',
-      textShadowColor: 'rgba(87, 32, 78, 0.75)',
-      textShadowOffset: { width: -4, height: 4 },
-      textShadowRadius: 10,
-      textAlign: 'center',
     },
 
     imageContainer: {
