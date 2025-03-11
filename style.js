@@ -3,11 +3,23 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
 
+
+    resultado: {
+    alignItems: "center", 
+      justifyContent: 'center',
+      width: '50%',
+      height: 60,
+      backgroundColor: 'rgba(255, 255, 255, 0.45)',
+      borderRadius: 15,
+      marginVertical: 10,
+      padding: 15,
+    },
+
     textInput: {
       alignItems: "center", 
         justifyContent: 'center',
-        width: '100%',
-        height: 40,
+        width: '50%',
+        height: 60,
         backgroundColor: 'rgba(255, 255, 255, 0.45)',
         borderRadius: 15,
         marginVertical: 10,
@@ -48,7 +60,7 @@ const styles = StyleSheet.create({
 
 
     texto: {
-      fontSize: 12,
+      fontSize: 20,
       fontWeight: 'bold',
       color: 'rgb(0, 0, 0)',
       textAlign: 'center',

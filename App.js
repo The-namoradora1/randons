@@ -1,35 +1,84 @@
-import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
-import styles from "./estilos/style.js"
+import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
+import { Picker } from '@react-native-picker/picker';
+import styles from "./style.js";
+import { useState } from 'react';
+
 export default function App() {
+  const [selectedOperation, setSelectedOperation] = useState("");
+  const [firstNumber, setFirstNumber] = useState("");
+  const [secondNumber, setSecondNumber] = useState("");
+  const [result, setResult] = useState(null);
+
+  const calculate = () => {
+    const num1 = parseInt(firstNumber);
+    const num2 = parseInt(secondNumber);
+    let result;
+
+        if (num2 === 0 || num1 === 0) {
+          Alert.alert("Erro", "QUEM DIVIDE POR ZERO MERECE QUEIMAR NAS CHAMAS DO INFERNO.");
+          console.log("Erro: Divisão por zero.");
+          return;
+        }
+
+    switch (selectedOperation) {
+      case "+":
+        result = num1 + num2;
+        break;
+      case "-":
+        result = num1 - num2;
+        break;
+      case "*":
+        result = num1 * num2;
+        break;
+      case "/":
+
+        result = num1 / num2;
+        break;
+      default:
+        Alert.alert("Erro", "Por favor, selecione uma operação.");
+        return;
+    }
+
+    setResult(result);
+  };
+
   return (
-    <View style={styles.viewPrincipal}>
-         <View style={styles.viewCabecalho}>
-         </View>
-        
-         <View style={styles.viewcenter}>
-        <Image source={require("./assets/molecu.jpg")} />
-      </View>
+    <View style={[styles.viewPrincipal, { justifyContent: 'center', alignItems: 'center' }]}>
+      <Text style={styles.texto}>Calculator</Text>
+      <TextInput
+        style={styles.textInput}
+        placeholder="primeiro numero"
+        keyboardType="numeric"
+        value={firstNumber}
+        onChangeText={setFirstNumber}
+      />
+      <Picker
+        selectedValue={selectedOperation}
+        style={styles.textInput}
+        onValueChange={(itemValue, itemIndex) => setSelectedOperation(itemValue)}
+      >
+        <Picker.Item label="Selecione a operação" value="" />
+        <Picker.Item label="+" value="+" />
+        <Picker.Item label="-" value="-" />
+        <Picker.Item label="*" value="*" />
+        <Picker.Item label="/" value="/" />
+      </Picker>
+      
+      <TextInput
+        style={styles.textInput}
+        placeholder="segundo numero"
+        keyboardType="numeric"
+        value={secondNumber}
+        onChangeText={setSecondNumber}
+      />
+      
+      <TouchableOpacity style={styles.botao} onPress={calculate}>
+        <Text style={styles.botaoTexto}>calcular</Text>
+      </TouchableOpacity>
 
-        <View >
-          <Text style={styles.textoCad}>Cadastro</Text>
-          <TextInput style={styles.textInput} placeholder="Digite seu email" />
-          <TextInput style={styles.textInput} placeholder="Digite sua senha" />
-
-         </View>
-         <View style= {{flexDirection:'row'}}>
-          <TouchableOpacity>
-            <Text style ={styles.texto} >Esqueceu seu e-mail?</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity>
-            <Text style ={styles.texto} >Esqueceu seu a senha?</Text>
-            </TouchableOpacity>
-         </View>
-
-         <TouchableOpacity style={styles.botao}>
-            <Text style={styles.botaoTexto}>Entrar</Text>
-          </TouchableOpacity>'
+      {result !== null && (
+        <Text style={styles.resultado}>Resultado: {result}</Text>
+      )}
     </View>
   );
 }
-
